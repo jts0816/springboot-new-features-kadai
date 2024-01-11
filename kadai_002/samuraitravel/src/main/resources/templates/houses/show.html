@@ -165,6 +165,66 @@
 
 							</div>
 						</div>
+
+						<h1 class="mb-4 text-center">レビュー</h1>
+
+						<div sec:authorize="isAuthenticated()">
+							<div th:unless="${isPosted}" class="row justify-content-center">
+								<div class="col-4 mb-4">
+									<form method="get" th:action="@{/houses/__${house.getId()}__/review/register}">
+										<button type="submit"
+											class="btn text-white shadow-sm w-100 samuraitravel-btn">レビューを投稿する</button>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<div class="row row-cols-lg-2 row-cols-2 g-3 mb-5">
+							<div class="col" th:each="review : ${reviewList}">
+								<div class="card h-200">
+									<div class="card-body">
+										<div class="card-title d-flex align-items-center justify-content-between">
+											<h3 th:text="${review.getUser().getName()}"></h3>
+											<div th:if="${review.getUser().getId() == userId}">
+												<a th:href="@{/houses/__${house.getId()}__/review/edit(id=${review.getId()})}"
+													class="mb-1">編集</a>
+												<a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"
+													th:attr="data-bs-whatever=${review.getId()}"
+													class="text-danger">削除</a>
+											</div>
+										</div>
+										<p class="card-text samuraitravel-evaluation">
+											<span
+												th:if="${review.getEvaluation() == 1}">&#9733;&#9734;&#9734;&#9734;&#9734;</span>
+											<span
+												th:if="${review.getEvaluation() == 2}">&#9733;&#9733;&#9734;&#9734;&#9734;</span>
+											<span
+												th:if="${review.getEvaluation() == 3}">&#9733;&#9733;&#9733;&#9734;&#9734;</span>
+											<span
+												th:if="${review.getEvaluation() == 4}">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+											<span
+												th:if="${review.getEvaluation() == 5}">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+										</p>
+										<p class="card-text mb-1">
+											<small class="text-muted"
+												th:text="${#dates.format(review.getCreatedAt(), 'yyyy/MM/dd')}"></small>
+										</p>
+										<p class="card-text">
+											<span th:text="${review.getReviewText()}"></span>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div th:if="${reviewList.size() == 0}" class="mb-4 text-center">
+							まだレビューがありません
+						</div>
+						<div th:unless="${reviewList.size() == 0}" class="mb-4 text-center">
+							<a th:href="@{/houses/__${house.getId()}__/review}">すべてのレビューを見る</a>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -175,6 +235,25 @@
 	</div>
 
 	<div th:replace="~{fragment :: scripts}"></div>
+
+	<!-- ModalDialog -->
+	<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<span th:text="${house.getName()} + 'のレビューを削除してもよろしいですか？'"></span>
+				</div>
+				<div class="modal-footer">
+					<form method="get" th:action="@{/houses/__${house.getId()}__/review/delete}">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
+						<button type="submit" id="reviewId" name="reviewId" value="17"
+							class="btn btn-danger">削除する</input>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/js/modal.js}" />
 
 	<!-- Flatpickr -->
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
