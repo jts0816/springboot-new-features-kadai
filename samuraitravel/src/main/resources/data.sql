@@ -87,3 +87,20 @@ INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_d
 INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_date, number_of_people, amount) VALUES (9, 9, 1, '2023-04-01', '2023-04-02', 5, 9000);
 INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_date, number_of_people, amount) VALUES (10, 10, 1, '2023-04-01', '2023-04-02', 6, 10000);
 INSERT IGNORE INTO reservations (id, house_id, user_id, checkin_date, checkout_date, number_of_people, amount) VALUES (11, 11, 1, '2023-04-01', '2023-04-02', 2, 6000);
+
+-- reviewテーブル
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (1, 1, 1, 5, '投稿1-1');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (2, 2, 1, 5, '投稿1-2');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (3, 3, 1, 3, '投稿1-3');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (4, 4, 1, 5, '投稿1-4');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (5, 5, 1, 5, '投稿1-5');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (6, 6, 1, 4, '投稿1-6');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (7, 7, 1, 5, '投稿1-7');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (8, 8, 1, 5, '投稿1-8');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (9, 9, 1, 2, '投稿1-9');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (10, 10, 1, 3, '投稿1-10');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (11, 11, 1, 4, '投稿1-11');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (12, 12, 1, 3, '投稿1-12');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (13, 1, 2, 4, '投稿2-1');
+INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (14, 2, 2, 5, '投稿2-2');
+
