@@ -104,3 +104,18 @@ INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUE
 INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (13, 1, 2, 4, '投稿2-1');
 INSERT IGNORE INTO review (id, user_id, house_id, evaluation, review_text) VALUES (14, 2, 2, 5, '投稿2-2');
 
+-- favorite
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (1, 1, 1);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (2, 1, 2);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (3, 1, 3);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (4, 1, 4);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (5, 1, 5);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (6, 1, 6);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (7, 1, 7);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (8, 1, 8);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (9, 1, 9);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (10, 1, 10);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (11, 1, 11);
+INSERT IGNORE INTO favorite (id, user_id, house_id) VALUES (12, 1, 12);
+
+
